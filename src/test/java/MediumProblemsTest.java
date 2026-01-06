@@ -1,3 +1,5 @@
+import leetcode.common.TreeBuilders;
+import leetcode.common.TreeNode;
 import leetcode.medium.*;
 
 import java.util.ArrayList;
@@ -5,9 +7,32 @@ import java.util.Arrays;
 import java.util.List;
 
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 public class MediumProblemsTest {
+    @Test
+    public void maxLevelSumBinaryTree() {
+        Integer[] input = {989, null, 10250, 98693, -89388, null, null, null, -32127};
+        TreeNode root = TreeBuilders.fromLevelOrder(input);
+
+        MaxLevelSumBinaryTree maxLevelSumBinaryTree = new MaxLevelSumBinaryTree();
+        int result = maxLevelSumBinaryTree.maxLevelSum(root);
+
+        assertEquals(2, result);
+    }
+
+    @Test
+    public void maxLevelSumBinaryTree2() {
+        Integer[] input = {1,7,0,7,-8,null,null};
+        TreeNode root = TreeBuilders.fromLevelOrder(input);
+
+        MaxLevelSumBinaryTree maxLevelSumBinaryTree = new MaxLevelSumBinaryTree();
+        int result = maxLevelSumBinaryTree.maxLevelSum(root);
+
+        assertEquals(2, result);
+    }
+
     @Test
     public void longestSubstringNoRepeatingChars() {
         String s = "au";
@@ -98,7 +123,7 @@ public class MediumProblemsTest {
         List<String> wordDict = new ArrayList<>();
         wordDict.add("a"); wordDict.add("b");
 
-        assertEquals(true, wb.wordBreak(s, wordDict));
+        assertTrue(wb.wordBreak(s, wordDict));
     }
 
     @Test
@@ -108,7 +133,7 @@ public class MediumProblemsTest {
         List<String> wordDict = new ArrayList<>();
         wordDict.add("leet"); wordDict.add("code");
 
-        assertEquals(true, wb.wordBreak(s, wordDict));
+        assertTrue(wb.wordBreak(s, wordDict));
     }
 
     @Test
@@ -118,7 +143,7 @@ public class MediumProblemsTest {
         List<String> wordDict = new ArrayList<>();
         wordDict.add("apple"); wordDict.add("pen");
 
-        assertEquals(true, wb.wordBreak(s, wordDict));
+        assertTrue(wb.wordBreak(s, wordDict));
     }
 
     @Test
@@ -129,7 +154,7 @@ public class MediumProblemsTest {
         wordDict.add("cats"); wordDict.add("dog");wordDict.add("sand");
         wordDict.add("cat");wordDict.add("and");
 
-        assertEquals(false, wb.wordBreak(s, wordDict));
+        assertFalse(wb.wordBreak(s, wordDict));
     }
 
     @Test
@@ -140,7 +165,7 @@ public class MediumProblemsTest {
         wordDict.add("a"); wordDict.add("b");
         wordDict.add("bbb");wordDict.add("bbbb");
 
-        assertEquals(true, wb.wordBreak(s, wordDict));
+        assertTrue(wb.wordBreak(s, wordDict));
     }
 
     @Test
